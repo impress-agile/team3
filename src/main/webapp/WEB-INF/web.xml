@@ -7,8 +7,16 @@
         <servlet-name>StockServlet</servlet-name>
         <servlet-class>rodeo.agile.impress.pos.StockServlet</servlet-class>
     </servlet>
+    <servlet>
+        <servlet-name>LoginServlet</servlet-name>
+        <servlet-class>rodeo.agile.impress.pos.LoginServlet</servlet-class>
+    </servlet>
     <servlet-mapping>
         <servlet-name>StockServlet</servlet-name>
         <url-pattern>/stocks</url-pattern>
+    </servlet-mapping>
+    <servlet-mapping>
+        <servlet-name>LoginServlet</servlet-name>
+        <url-pattern>/login</url-pattern>
     </servlet-mapping>
 </web-app>

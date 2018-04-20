@@ -7,7 +7,7 @@ import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
-public class StockServlet extends HttpServlet {
+public class LoginServlet extends HttpServlet {
 
     private static final long serialVersionUID = 6961400581681209885L;
 
