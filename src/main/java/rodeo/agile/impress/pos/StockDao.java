@@ -21,7 +21,7 @@ public class StockDao {
 			connection = DriverManager.getConnection("jdbc:sqlite:" + this.dbPath);
 			statement = connection.createStatement();
 			statement.setQueryTimeout(30);
-			statement.execute("INSERT INTO items (name, price) VALUES ('" + name + "', " + price + ");");
+			statement.execute("INSERT INTO stocks (name, price) VALUES ('" + name + "', " + price + ");");
 		} catch (SQLException e) {
 			throw e;
 		} finally {

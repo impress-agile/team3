@@ -4,6 +4,10 @@
         <session-timeout>30</session-timeout>
     </session-config>
     <servlet>
+        <servlet-name>ItemServlet</servlet-name>
+        <servlet-class>rodeo.agile.impress.pos.ItemServlet</servlet-class>
+    </servlet>
+    <servlet>
         <servlet-name>StockServlet</servlet-name>
         <servlet-class>rodeo.agile.impress.pos.StockServlet</servlet-class>
     </servlet>
@@ -16,6 +20,10 @@
         <servlet-class>rodeo.agile.impress.pos.MenuServlet</servlet-class>
     </servlet>
     
+    <servlet-mapping>
+        <servlet-name>ItemServlet</servlet-name>
+        <url-pattern>/items</url-pattern>
+    </servlet-mapping>
     <servlet-mapping>
         <servlet-name>StockServlet</servlet-name>
         <url-pattern>/stocks</url-pattern>
