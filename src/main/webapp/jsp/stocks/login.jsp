@@ -2,7 +2,7 @@
   <head>
   </head>
   <body>
-    <form action="/pos/stocks/menu.jsp" method="POST">
+    <form action="./menu" method="POST">
       ID:<input type="text" name="id"/><br/>
       PW:<input type="password" name="pw"/><br/>
       <input type="submit" value="login"/>
