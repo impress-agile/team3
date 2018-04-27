@@ -1,6 +1,8 @@
 package rodeo.agile.impress.pos;
 
 import java.io.IOException;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
@@ -13,6 +15,19 @@ public class StockServlet extends HttpServlet {
 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
+        try {
+        	String dbPath = getServletContext().getRealPath("WEB-INF/pos.db");
+        	ItemDao dao = new ItemDao(dbPath);
+
+        	ItemLogic logic = new ItemLogic(dao);
+        	List items = logic.selectItems();
+        	request.setAttribute("items", items);
+        	
+        } catch (Exception e) {
+        	e.printStackTrace();
+
+        	request.setAttribute("items", new ArrayList());
+        }
         request.getRequestDispatcher("jsp/stocks/input.jsp").forward(request, response);
     }
 
