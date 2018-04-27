@@ -13,7 +13,7 @@ public class StockDao {
 		this.dbPath = path;
 	}
 
-	public void insert(String name, int price) throws ClassNotFoundException, SQLException {
+	public void insert(int itemId, int amount) throws ClassNotFoundException, SQLException {
 		Class.forName("org.sqlite.JDBC");
 		Connection connection = null;
 		Statement statement = null;
@@ -21,7 +21,7 @@ public class StockDao {
 			connection = DriverManager.getConnection("jdbc:sqlite:" + this.dbPath);
 			statement = connection.createStatement();
 			statement.setQueryTimeout(30);
-			statement.execute("INSERT INTO stocks (name, price) VALUES ('" + name + "', " + price + ");");
+			statement.execute("INSERT INTO stocks (item_id, amount) VALUES ('" + itemId + "', " + amount + ");");
 		} catch (SQLException e) {
 			throw e;
 		} finally {

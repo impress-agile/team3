@@ -19,29 +19,6 @@ public class LoginServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String priceString = request.getParameter("price");
-
-        int price = 0;
-        try {
-        	price = Integer.parseInt(priceString);
-
-        	String dbPath = getServletContext().getRealPath("WEB-INF/pos.db");
-        	StockDao dao = new StockDao(dbPath);
-
-        	StockLogic logic = new StockLogic(dao);
-        	logic.add(name, price);
-        } catch (Exception e) {
-        	e.printStackTrace();
-
-        	request.setAttribute("name", name);
-            request.setAttribute("price", priceString);
-            request.getRequestDispatcher("jsp/stocks/input.jsp").forward(request, response);
-            //request.getRequestDispatcher("jsp/stocks/login.jsp").forward(request, response);
-            return;
-        }
-        
-        request.getRequestDispatcher("jsp/stocks/success.jsp").forward(request, response);
     }
 
 }

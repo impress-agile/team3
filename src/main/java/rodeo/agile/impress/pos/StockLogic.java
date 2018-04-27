@@ -12,11 +12,11 @@ public class StockLogic {
 		this.dao = dao;
 	}
 
-	public void add(String name, int price) throws ClassNotFoundException, SQLException {
-		if (price == 0) {
-			throw new RuntimeException("Failed to add item which price is 0.");
+	public void add(int itemId, int amount) throws ClassNotFoundException, SQLException {
+		if (amount == 0) {
+			throw new RuntimeException("Failed to add stock which amount is 0.");
 		}
-		dao.insert(name, price);
+		dao.insert(itemId, amount);
 	}
 
 	public List selectItems() {

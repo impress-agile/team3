@@ -18,23 +18,25 @@ public class StockServlet extends HttpServlet {
 
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException {
-        String name = request.getParameter("name");
-        String priceString = request.getParameter("price");
+        String itemIdString = request.getParameter("itemId");
+        String amountString = request.getParameter("amount");
 
-        int price = 0;
+        int itemId = 0;
+        int amount = 0;
         try {
-        	price = Integer.parseInt(priceString);
+        	itemId = Integer.parseInt(itemIdString);
+        	amount = Integer.parseInt(amountString);
 
         	String dbPath = getServletContext().getRealPath("WEB-INF/pos.db");
         	StockDao dao = new StockDao(dbPath);
 
         	StockLogic logic = new StockLogic(dao);
-        	logic.add(name, price);
+        	logic.add(itemId, amount);
         } catch (Exception e) {
         	e.printStackTrace();
 
-        	request.setAttribute("name", name);
-            request.setAttribute("price", priceString);
+        	request.setAttribute("itemId", itemIdString);
+            request.setAttribute("amount", amountString);
             request.getRequestDispatcher("jsp/stocks/input.jsp").forward(request, response);
             //request.getRequestDispatcher("jsp/stocks/login.jsp").forward(request, response);
             return;

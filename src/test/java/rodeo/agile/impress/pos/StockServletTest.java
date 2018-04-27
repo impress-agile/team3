@@ -44,8 +44,8 @@ public class StockServletTest {
 
     @Test
     public void testPostAccessShouldBeForwardedToSuccessPageIfInputValuesAreValid() throws ServletException, IOException {
-    	this.request.addParameter("name", "ValidName");
-    	this.request.addParameter("price", "5");
+    	this.request.addParameter("itemId", "ValidName");
+    	this.request.addParameter("amount", "5");
 
         this.servlet.doPost(this.request, this.response);    
 
@@ -54,8 +54,8 @@ public class StockServletTest {
     
     @Test
     public void testPostAccessShouldBeForwaredToInputPageIfInputValuesAreNotValid() throws ServletException, IOException {
-    	this.request.addParameter("name", "ValidName");
-    	this.request.addParameter("price", "InvalidNumber");
+    	this.request.addParameter("itemId", "ValidName");
+    	this.request.addParameter("amount", "InvalidNumber");
 
         this.servlet.doPost(this.request, this.response);    
 

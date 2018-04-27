@@ -26,14 +26,14 @@ public class StockLogicTest {
 	
 	@Test
 	public void testInsertMethodShouldBeCalledIfValuesAreValid() throws ClassNotFoundException, SQLException {		
-		stockLogic.add("ValidName", 5);
+		stockLogic.add(1, 5);
 		
-		verify(dao, times(1)).insert("ValidName", 5);
+		verify(dao, times(1)).insert(1, 5);
 	}
 	
 	@Test (expected=RuntimeException.class)
 	public void testExceptionShouldBeThrownIfPriceIsZero() throws ClassNotFoundException, SQLException {
-		stockLogic.add("ValidName", 0);
+		stockLogic.add(1, 0);
 	}
 
 	@Test
@@ -44,10 +44,10 @@ public class StockLogicTest {
 		
 		List<Stock> stocks = new ArrayList();
 		if (stocks.size() > 0) {
-			Stock first = stocks.get(0);
-			assertEquals(first.getName(),"きゅうり");
-			assertEquals(first.getPrice(),100);
-			assertEquals(first.getPrice(),200);
+//			Stock first = stocks.get(0);
+//			assertEquals(first.getName(),"きゅうり");
+//			assertEquals(first.getPrice(),100);
+//			assertEquals(first.getPrice(),200);
 		}	//verify(dao, times(1)).select());
 	}
 
